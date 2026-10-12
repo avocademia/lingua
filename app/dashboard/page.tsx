@@ -7,7 +7,7 @@ import { prisma } from "@/lib/prisma";
 import DashboardActions from "./dashboard-actions";
 import styles from "./dashboard.module.scss";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = { 
   title: "Your progress — Lingua",
   description: "See your Italian practice stats and recent answers.",
 };
