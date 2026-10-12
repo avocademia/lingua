@@ -1,0 +1,632 @@
+.practicePage {
+  min-height: 100vh;
+  padding: 0 28px 48px;
+}
+
+.practiceLoading {
+  width: min(100%, 660px);
+  margin: 30vh auto 0;
+  color: #718077;
+  font-size: 13px;
+  text-align: center;
+}
+
+.topbar {
+  width: min(100%, 1120px);
+  height: 82px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e3e9e0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #233d32;
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -0.8px;
+
+  &:hover .brandMark {
+    transform: rotate(-8deg);
+  }
+}
+
+.brandMark {
+  display: grid;
+  width: 35px;
+  height: 35px;
+  place-items: center;
+  border-radius: 12px;
+  background: #315e49;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 400;
+  transition: transform 160ms ease;
+}
+
+.accountActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.accountName {
+  color: #526359;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.logoutButton {
+  padding: 8px 12px;
+  border: 1px solid #e2e8df;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #526359;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #b9c9b8;
+    color: #315e49;
+  }
+}
+
+.logoutError {
+  color: #a23f38;
+  font-size: 11px;
+}
+
+.practiceLayout {
+  width: min(100%, 660px);
+  margin: 0 auto;
+}
+
+.intro {
+  padding: 53px 0 30px;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    color: #243a30;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(44px, 7vw, 60px);
+    font-weight: 500;
+    letter-spacing: -2.5px;
+    line-height: 1.06;
+
+    span {
+      color: #64896d;
+      font-style: italic;
+    }
+  }
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: #64846e;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.introCopy {
+  max-width: 440px;
+  margin: 16px auto 0;
+  color: #77827b;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.practiceCard {
+  position: relative;
+  padding: 23px 30px 21px;
+  border: 1px solid #e5ebe3;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 48px rgba(43, 66, 50, 0.075);
+}
+
+.cardTopline {
+  min-height: 23px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.stepLabel {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #748078;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1.45px;
+}
+
+.stepDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7da481;
+  box-shadow: 0 0 0 3px #edf4eb;
+}
+
+.scorePill {
+  padding: 7px 10px;
+  border-radius: 99px;
+  background: #eff5ed;
+  color: #54745b;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.welcomePanel,
+.loadingPanel,
+.messagePanel {
+  padding: 50px 10px 34px;
+  text-align: center;
+}
+
+.welcomeIcon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 18px;
+  place-items: center;
+  border: 1px solid #e4eee1;
+  border-radius: 16px;
+  background: #f0f6ed;
+  color: #63836a;
+  font-size: 22px;
+}
+
+.welcomePanel h2,
+.messagePanel h2 {
+  margin: 0;
+  color: #2d4035;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+.welcomePanel > p,
+.messagePanel > p {
+  max-width: 390px;
+  margin: 12px auto 23px;
+  color: #7a857e;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.primaryButton {
+  min-height: 45px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 9px;
+  background: #315e49;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: #264c39;
+    box-shadow: 0 6px 15px rgba(49, 94, 73, 0.19);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: #92a69a;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #9dbd9e;
+    outline-offset: 3px;
+  }
+}
+
+.loadingPanel {
+  padding: 73px 10px 68px;
+  color: #748078;
+  font-size: 13px;
+}
+
+.spinner {
+  display: block;
+  width: 27px;
+  height: 27px;
+  margin: 0 auto 15px;
+  border: 3px solid #e4eee3;
+  border-top-color: #5e8467;
+  border-radius: 50%;
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.promptHeading {
+  padding: 36px 0 23px;
+}
+
+.promptLabel,
+.detailLabel {
+  margin: 0;
+  color: #839087;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1.35px;
+  text-transform: uppercase;
+}
+
+.verbTitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 8px;
+
+  h2 {
+    margin: 0;
+    color: #263e32;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: -1.3px;
+  }
+}
+
+.translation {
+  color: #859088;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.promptDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+  margin-bottom: 27px;
+}
+
+.detailTile {
+  min-height: 67px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 14px;
+  border: 1px solid #e9eee7;
+  border-radius: 10px;
+  background: #fafbf9;
+}
+
+.detailValue {
+  color: #36483d;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.answerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 9px;
+
+  label {
+    margin-top: 3px;
+    color: #405248;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    border: 1px solid #dfe7de;
+    border-radius: 9px;
+    background: #fff;
+    color: #293c31;
+    font: inherit;
+    font-size: 13px;
+    line-height: 1.55;
+    transition: border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+
+    &::placeholder {
+      color: #a3aca5;
+    }
+
+    &:focus-visible {
+      border-color: #7da481;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(125, 164, 129, 0.18);
+    }
+
+    &:disabled {
+      background: #f7f9f6;
+    }
+  }
+
+  input {
+    height: 46px;
+    padding: 0 13px;
+  }
+
+  textarea {
+    min-height: 89px;
+    padding: 11px 13px;
+    resize: vertical;
+  }
+}
+
+.formActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.checkingNote {
+  color: #89938c;
+  font-size: 11px;
+}
+
+.inlineError {
+  margin: 3px 0;
+  color: #a13e36;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.feedbackPanel {
+  margin-top: 15px;
+  padding: 16px;
+  border: 1px solid #e5ebe3;
+  border-radius: 12px;
+  background: #fafbf9;
+}
+
+.feedbackHeading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  h3 {
+    margin: 0 0 4px;
+    color: #34473b;
+    font-size: 14px;
+  }
+
+  p {
+    margin: 0;
+    color: #748078;
+    font-size: 10px;
+  }
+
+  strong {
+    color: #50665a;
+    font-weight: 700;
+  }
+}
+
+.resultIcon,
+.messageIcon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 750;
+}
+
+.resultSuccess {
+  background: #e5f1e4;
+  color: #3f7548;
+}
+
+.resultNeedsWork {
+  background: #fff1df;
+  color: #a46d2e;
+}
+
+.answerNote,
+.tutorFeedback {
+  margin: 13px 0 0;
+  color: #58675e;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.answerNote strong {
+  color: #315e49;
+}
+
+.correctedSentence {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 12px 0 0;
+  padding: 11px 12px;
+  border-left: 2px solid #9bb999;
+  background: #f1f6ef;
+  color: #445a49;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.5;
+
+  span {
+    color: #78877b;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 750;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+.nextButton {
+  margin-top: 15px;
+}
+
+.messagePanel {
+  padding-top: 43px;
+}
+
+.messageIcon {
+  margin: 0 auto 16px;
+  background: #fbebe9;
+  color: #a13e36;
+}
+
+.errorPanel {
+  h2 {
+    font-size: 25px;
+  }
+
+  > p {
+    color: #805752;
+  }
+}
+
+.finishedPanel {
+  padding-bottom: 36px;
+
+  strong {
+    color: #315e49;
+  }
+}
+
+.finishLink {
+  display: block;
+  margin: 18px auto 0;
+  padding: 5px 8px;
+  border: 0;
+  background: transparent;
+  color: #87928a;
+  font-size: 10px;
+
+  &:hover {
+    color: #315e49;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #9dbd9e;
+    outline-offset: 2px;
+  }
+}
+
+.pageFootnote {
+  margin: 19px 0 0;
+  color: #8b968e;
+  font-size: 11px;
+  text-align: center;
+
+  span {
+    padding-right: 4px;
+    color: #7c9b7e;
+  }
+}
+
+@media (max-width: 560px) {
+  .practicePage {
+    padding: 0 16px 32px;
+  }
+
+  .topbar {
+    height: 70px;
+  }
+
+  .intro {
+    padding: 41px 0 24px;
+  }
+
+  .introCopy {
+    max-width: 350px;
+    font-size: 13px;
+  }
+
+  .practiceCard {
+    padding: 18px 17px 17px;
+    border-radius: 15px;
+  }
+
+  .promptHeading {
+    padding-top: 29px;
+  }
+
+  .verbTitle h2 {
+    font-size: 35px;
+  }
+
+  .promptDetails {
+    gap: 8px;
+  }
+
+  .detailTile {
+    padding: 10px;
+  }
+
+  .detailValue {
+    font-size: 11px;
+  }
+
+  .feedbackPanel {
+    padding: 13px;
+  }
+
+  .feedbackHeading p {
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 360px) {
+  .practicePage {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .languagePill {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .practiceCard {
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+
+  .detailValue {
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .practicePage,
+  .practicePage *,
+  .practicePage *::before,
+  .practicePage *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

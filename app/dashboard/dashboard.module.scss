@@ -1,0 +1,508 @@
+.dashboardPage {
+  min-height: 100vh;
+  padding: 0 28px 54px;
+}
+
+.topbar {
+  width: min(100%, 1120px);
+  height: 82px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e3e9e0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #233d32;
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -0.8px;
+}
+
+.brandMark {
+  display: grid;
+  width: 35px;
+  height: 35px;
+  place-items: center;
+  border-radius: 12px;
+  background: #315e49;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.accountActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navLink,
+.logoutButton {
+  padding: 8px 12px;
+  border: 1px solid #e2e8df;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #526359;
+  text-decoration: none;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.navLink:hover,
+.logoutButton:hover {
+  border-color: #b9c9b8;
+  color: #315e49;
+}
+
+.actionError {
+  color: #a23f38;
+  font-size: 11px;
+}
+
+.dashboard {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+}
+
+.loading {
+  width: min(100%, 660px);
+  margin: 30vh auto 0;
+  color: #718077;
+  font-size: 13px;
+  text-align: center;
+}
+
+.welcome {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 47px 0 28px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #64846e;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.welcome h1 {
+  margin: 0;
+  color: #243a30;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 6vw, 49px);
+  font-weight: 500;
+  letter-spacing: -1.8px;
+
+  span {
+    color: #64896d;
+    font-style: italic;
+  }
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  color: #77827b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.practiceButton {
+  min-height: 43px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 16px;
+  border-radius: 9px;
+  background: #315e49;
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 140ms ease, transform 140ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    background: #264c39;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #9dbd9e;
+    outline-offset: 3px;
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.statCard,
+.activityCard,
+.recentCard {
+  border: 1px solid #e5ebe3;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 34px rgba(43, 66, 50, 0.045);
+}
+
+.statCard {
+  min-height: 134px;
+  display: flex;
+  flex-direction: column;
+  padding: 19px 18px 16px;
+}
+
+.statLabel {
+  color: #839087;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+
+.statValue {
+  margin: 13px 0 4px;
+  color: #2d4839;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 33px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.statSuffix {
+  color: #87958a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  letter-spacing: 0;
+}
+
+.statNote {
+  margin-top: auto;
+  color: #849087;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.activityCard,
+.recentCard {
+  margin-top: 16px;
+  padding: 23px 25px 20px;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  .eyebrow {
+    margin-bottom: 7px;
+    font-size: 9px;
+  }
+
+  h2 {
+    margin: 0;
+    color: #2d4035;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.4px;
+  }
+}
+
+.activityTotal {
+  padding: 7px 10px;
+  border-radius: 99px;
+  background: #eff5ed;
+  color: #54745b;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.chart {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 21px;
+}
+
+.chartDay {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chartCount {
+  height: 17px;
+  color: #54745b;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.chartTrack {
+  width: min(100%, 58px);
+  height: 105px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: 8px 8px 3px 3px;
+  background: #f1f5ef;
+}
+
+.chartBar {
+  width: 100%;
+  min-height: 0;
+  border-radius: 7px 7px 2px 2px;
+  background: linear-gradient(180deg, #88ab87, #4e795a);
+  transition: height 200ms ease;
+}
+
+.chartWeekday {
+  margin-top: 10px;
+  color: #596a5f;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.chartDate {
+  margin-top: 3px;
+  color: #99a29c;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.textLink {
+  color: #54745b;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+
+  &:hover {
+    color: #315e49;
+    text-decoration: underline;
+  }
+}
+
+.attemptList {
+  margin: 17px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.attemptRow {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 30px minmax(100px, 1fr) minmax(120px, 1.3fr) minmax(115px, 1fr) 130px;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #edf0eb;
+}
+
+.resultMark {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.correct {
+  background: #e5f1e4;
+  color: #3f7548;
+}
+
+.needsWork {
+  background: #fff1df;
+  color: #a46d2e;
+}
+
+.verb {
+  color: #36483d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tense,
+.attemptDate {
+  color: #849087;
+  font-size: 11px;
+}
+
+.resultText {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.correctText {
+  color: #527857;
+}
+
+.needsWorkText {
+  color: #a17843;
+}
+
+.attemptDate {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.emptyState {
+  padding: 34px 12px 17px;
+  text-align: center;
+
+  h3 {
+    margin: 0;
+    color: #34473b;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    font-weight: 500;
+  }
+
+  p {
+    margin: 8px 0 17px;
+    color: #7a857e;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+}
+
+.emptyIcon {
+  display: grid;
+  width: 41px;
+  height: 41px;
+  margin: 0 auto 13px;
+  place-items: center;
+  border: 1px solid #e4eee1;
+  border-radius: 14px;
+  background: #f0f6ed;
+  color: #63836a;
+  font-size: 18px;
+}
+
+@media (max-width: 760px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .attemptRow {
+    grid-template-columns: 30px minmax(90px, 1fr) minmax(100px, 1.2fr) 110px;
+  }
+
+  .resultText {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .dashboardPage {
+    padding: 0 16px 36px;
+  }
+
+  .topbar {
+    height: 70px;
+  }
+
+  .welcome {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+    padding: 35px 0 22px;
+  }
+
+  .statsGrid {
+    gap: 9px;
+  }
+
+  .statCard {
+    min-height: 123px;
+    padding: 15px 13px 13px;
+  }
+
+  .statLabel {
+    font-size: 8px;
+    letter-spacing: 0.6px;
+  }
+
+  .statValue {
+    font-size: 29px;
+  }
+
+  .statNote {
+    font-size: 9px;
+  }
+
+  .activityCard,
+  .recentCard {
+    padding: 19px 15px 16px;
+  }
+
+  .chart {
+    gap: 6px;
+  }
+
+  .chartTrack {
+    height: 83px;
+  }
+
+  .chartDate {
+    font-size: 8px;
+  }
+
+  .attemptRow {
+    grid-template-columns: 27px minmax(70px, 1fr) auto;
+    gap: 8px;
+    padding: 8px 0;
+  }
+
+  .tense {
+    display: none;
+  }
+
+  .attemptDate {
+    grid-column: 2 / 4;
+    text-align: left;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .dashboardPage {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .accountActions {
+    gap: 6px;
+  }
+
+  .navLink,
+  .logoutButton {
+    padding: 8px 9px;
+    font-size: 11px;
+  }
+
+  .activityCard,
+  .recentCard {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}

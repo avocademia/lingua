@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String           @id @default(cuid())
+  email           String           @unique
+  username        String           @unique
+  passwordHash    String
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  sessions        Session[]
+  practiceSessions PracticeSession[]
+  vocabularyItems VocabularyItem[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model PracticeSession {
+  id           String        @id @default(cuid())
+  userId       String
+  startedAt    DateTime      @default(now())
+  endedAt      DateTime?
+  correctCount Int           @default(0)
+  totalCount   Int           @default(0)
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  attempts     VerbAttempt[]
+
+  @@index([userId, startedAt])
+}
+
+model VerbAttempt {
+  id                    String          @id @default(cuid())
+  practiceSessionId      String?
+  verb                  String
+  translation           String
+  tense                 String
+  pronoun               String
+  conjugation           String
+  sentence              String
+  expectedConjugation   String?
+  conjugationCorrect    Boolean         @default(false)
+  sentenceCorrect       Boolean         @default(false)
+  feedback              String?
+  createdAt             DateTime        @default(now())
+  practiceSession       PracticeSession? @relation(fields: [practiceSessionId], references: [id], onDelete: SetNull)
+
+  @@index([practiceSessionId, createdAt])
+}
+
+model VocabularyItem {
+  id          String   @id @default(cuid())
+  userId      String
+  italian     String
+  translation String
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, italian])
+  @@index([userId, createdAt])
+}

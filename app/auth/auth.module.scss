@@ -1,0 +1,238 @@
+.authPage {
+  min-height: 100vh;
+  padding: 0 28px 48px;
+}
+
+.loadingMessage {
+  width: min(100%, 480px);
+  margin: 30vh auto 0;
+  color: #718077;
+  font-size: 13px;
+  text-align: center;
+}
+
+.topbar {
+  width: min(100%, 1120px);
+  height: 82px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e3e9e0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #233d32;
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -0.8px;
+}
+
+.brandMark {
+  display: grid;
+  width: 35px;
+  height: 35px;
+  place-items: center;
+  border-radius: 12px;
+  background: #315e49;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.topbarNote {
+  color: #718077;
+  font-size: 12px;
+}
+
+.authLayout {
+  width: min(100%, 480px);
+  margin: 0 auto;
+}
+
+.intro {
+  padding: 54px 0 28px;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    color: #243a30;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(40px, 7vw, 54px);
+    font-weight: 500;
+    letter-spacing: -2.4px;
+    line-height: 1.1;
+
+    span {
+      color: #64896d;
+      font-style: italic;
+    }
+  }
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: #64846e;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.introCopy {
+  max-width: 390px;
+  margin: 15px auto 0;
+  color: #77827b;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.authCard {
+  overflow: hidden;
+  border: 1px solid #e5ebe3;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 48px rgba(43, 66, 50, 0.075);
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 8px;
+  border-bottom: 1px solid #edf0eb;
+  background: #fafbf9;
+
+  button {
+    min-height: 42px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: #77827b;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+  }
+
+  .activeTab {
+    background: white;
+    color: #315e49;
+    box-shadow: 0 2px 8px rgba(43, 66, 50, 0.08);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 28px 22px;
+
+  label {
+    margin: 0 0 8px;
+    color: #35473d;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  input {
+    width: 100%;
+    min-height: 47px;
+    margin-bottom: 18px;
+    padding: 0 13px;
+    border: 1px solid #dfe6dc;
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+    color: #273b30;
+    font: inherit;
+    font-size: 13px;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+
+    &::placeholder {
+      color: #a1aaa3;
+    }
+
+    &:focus {
+      border-color: #799b7d;
+      box-shadow: 0 0 0 3px rgba(100, 137, 109, 0.12);
+    }
+  }
+}
+
+.fieldHint {
+  margin: -12px 0 17px;
+  color: #8a948d;
+  font-size: 11px;
+}
+
+.errorMessage {
+  margin: -2px 0 14px;
+  color: #a23f38;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.submitButton {
+  display: flex;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 10px;
+  background: #315e49;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 150ms ease, transform 150ms ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: #264c39;
+  }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+}
+
+.securityNote {
+  margin: 17px 0 0;
+  color: #8a948d;
+  font-size: 10px;
+  line-height: 1.6;
+  text-align: center;
+
+  span {
+    color: #64896d;
+  }
+}
+
+.pageFootnote {
+  margin: 24px 0 0;
+  color: #849087;
+  font-size: 11px;
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .authPage {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .topbarNote {
+    display: none;
+  }
+
+  .form {
+    padding: 23px 20px 20px;
+  }
+}
