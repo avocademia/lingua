@@ -175,6 +175,7 @@ export default function PracticeClient({ username }: { username: string }) {
         <div className={styles.accountActions}>
           <span className={styles.accountName}>{username}</span>
           <Link className={styles.logoutButton} href="/dashboard">Dashboard</Link>
+          <Link className={styles.logoutButton} href="/settings">Settings</Link>
           <button className={styles.logoutButton} onClick={() => void logOut()} type="button">Log out</button>
           {logoutError && <span className={styles.logoutError} role="alert">{logoutError}</span>}
         </div>

@@ -23,6 +23,7 @@ export default function DashboardActions() {
   return (
     <div className={styles.accountActions}>
       <Link className={styles.navLink} href="/verbs">Practice</Link>
+      <Link className={styles.navLink} href="/settings">Settings</Link>
       <button className={styles.logoutButton} onClick={() => void logOut()} type="button">Log out</button>
       {error && <span className={styles.actionError} role="alert">{error}</span>}
     </div>
