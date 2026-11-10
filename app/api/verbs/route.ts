@@ -10,6 +10,13 @@ const TENSES = [
   "future simple",
   "conditional present",
   "present subjunctive",
+  "imperfect subjunctive",
+  "trapassato prossimo",
+  "future perfect",
+  "conditional perfect",
+  "past subjunctive",
+  "trapassato remoto",
+  
 ];
 const EXERCISE_BATCH_SIZE = 20
 const MAX_FEEDBACK_LENGTH = 180;
