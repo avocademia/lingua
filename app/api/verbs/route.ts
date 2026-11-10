@@ -12,6 +12,7 @@ const TENSES = [
   "present subjunctive",
 ];
 const EXERCISE_BATCH_SIZE = 20
+const MAX_FEEDBACK_LENGTH = 180;
 
 interface AnswerFeedback {
   correct_conjugation: boolean
@@ -87,6 +88,7 @@ function parseAnswerFeedback(value: Record<string, unknown>): AnswerFeedback | n
     !value.expected_conjugation.trim() ||
     typeof value.feedback !== "string" ||
     !value.feedback.trim() ||
+    value.feedback.trim().length > MAX_FEEDBACK_LENGTH ||
     typeof value.corrected_sentence !== "string"
   ) {
     return null
@@ -200,7 +202,7 @@ export async function POST(request: Request) {
       "The conjugation must match the given Italian infinitive, tense, and pronoun. The sentence must be a grammatical Italian sentence that uses the requested conjugation correctly.",
       'Return exactly one JSON object with exactly these five properties and no others: "correct_conjugation" (boolean), "correct_sentence" (boolean), "expected_conjugation" (string), "feedback" (string), "corrected_sentence" (string).',
       'Use this exact structure: {"correct_conjugation":true,"correct_sentence":true,"expected_conjugation":"parlo","feedback":"Both your conjugation and sentence are correct.","corrected_sentence":""}. The values are examples; decide the correct values from the learner answer.',
-      "Write feedback in clear, brief English and explain any correction. Write corrected_sentence in Italian; return an empty string if the submitted sentence needs no correction.",
+      `Write feedback in clear, brief English, explain any correction, and keep it to at most ${MAX_FEEDBACK_LENGTH} characters. Write corrected_sentence in Italian; return an empty string if the submitted sentence needs no correction.`,
       "Always provide a non-empty expected_conjugation and feedback string. Return valid JSON only, without markdown or text outside the object.",
       "Do not mark a correct conjugation wrong because the sentence uses a different subject where the target form is still used appropriately.",
     ].join(" ");
@@ -216,7 +218,7 @@ export async function POST(request: Request) {
         systemPrompt,
         attempt === 0
           ? answerPrompt
-          : `${answerPrompt}\n\nYour previous response did not match the required data model. Return the exact five-property JSON object specified in the system instructions.`,
+          : `${answerPrompt}\n\nYour previous response did not match the required data model or exceeded the feedback character limit. Return the exact five-property JSON object specified in the system instructions and keep feedback within its limit.`,
       )
       feedback = parseAnswerFeedback(result);
     }
