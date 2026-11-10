@@ -60,8 +60,8 @@ export async function PATCH(request: Request) {
           { id: { not: user.id } },
           {
             OR: [
-              ...(email !== undefined ? [{ email: updateData.email }] : []),
-              ...(username !== undefined ? [{ username: updateData.username }] : []),
+              ...(email !== undefined ? [{ email: updateData.email as string }] : []),
+              ...(username !== undefined ? [{ username: updateData.username as string }] : []),
             ],
           },
         ],
